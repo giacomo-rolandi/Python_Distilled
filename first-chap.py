@@ -5,7 +5,7 @@ x = 7
 y = 4
 
 """
-Stampa di apprx, div/mod , potenza
+Stampa di valore assoluto, div/mod, potenza, approsimazione
 
 print(abs(-(x/y)))
 print(divmod(x,y))
@@ -82,7 +82,9 @@ print(a.strip("ld ") + "c")
 
 Apre un file e stampa riga per riga 
 
-with open (r"C:\Users\angel\Desktop\Study_Method.txt") as file:
+
+
+with open (r"/home/jackzzzr/Desktop/Python/P-Dist/prova.txt") as file:
     for line in file:
         print (line, end="")
                      Di base con end impostato a \n
@@ -94,13 +96,17 @@ with open (r"C:\Users\angel\Desktop\Study_Method.txt") as file:
 
 Variante senza with
 
-"""
 
-file = open (r"C:\Users\angel\Desktop\Study_Method.txt")
+file = open ("./prova.txt")
 
 for line in file:
     print(line, end="")
 file.close()
 
 
+"""
+
+"""
+
+"""
 
