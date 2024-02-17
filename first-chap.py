@@ -245,7 +245,7 @@ print(a.strip("ld ") + "c")
 
 Apre un file e stampa riga per riga 
 
-with open (r"") as file:
+with open (r"C:\Users\angel\Desktop\Study_Method.txt") as file:
     for line in file:
         print (line, end="")
                      Di base con end impostato a \n
@@ -258,10 +258,8 @@ with open (r"") as file:
 Variante senza with
 
 """
-"""
 
-
-file = open (r"")
+file = open (r"C:\Users\angel\Desktop\Study_Method.txt")
 
 for line in file:
     print(line, end="")
@@ -270,4 +268,9 @@ file.close()
 """
 
 
+"""
+
+"""
+
+"""
 
