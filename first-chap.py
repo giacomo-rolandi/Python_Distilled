@@ -182,6 +182,7 @@ def Arithmetic_Operators(chapter):   #(1.4)
 
 
 
+
 """
 Nel primo caso stampa la stringa con le varie funzioni, nel secondo così com'è scritto
 N.B. Per selezionare più righe premere SHIFT, Per spostarle ALT, e per ricopiarle su o giù SHIFT+ALT
