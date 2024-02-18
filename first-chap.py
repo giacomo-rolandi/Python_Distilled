@@ -2,12 +2,7 @@
 
 chapter = 1
 
-s = " Giacomo 19"
 
-s.strip()
-result = s.strip("19 ")
-
-print(result)
 
 def Primitives_Variables_Expressions(chapter):  #(1.3)
     
@@ -87,7 +82,19 @@ def Arithmetic_Operators(chapter):   #(1.4)
     x ^ y       permette di fare l'operazione logica XOR
     ~x          permette di fare l'operazione logica NOT (a livello di bit)
 
+    
 
+    STAMPA BINARIO
+
+    n1 = 9
+    n2 = -23
+
+    print(bin(n2))
+    print(" " + bin(n1))
+    print(bin(~n1))
+    print(~n1)
+
+    
     
     CONDIZIONI E CONTROLLO DEL FLUSSO
 
@@ -175,103 +182,114 @@ def Arithmetic_Operators(chapter):   #(1.4)
 
             print(result)   Stamperà la stringa senza spazi iniziali e finali (data la prima chiamata)
                             e senza il 19 finale (data la seconda chiamata)
+
+    
+    Nel primo caso stampa la stringa con le varie funzioni, nel secondo così com'è scritto
+    N.B. Per selezionare più righe premere SHIFT, Per spostarle ALT, e per ricopiarle su o giù SHIFT+ALT
+
+    print(str("\n \n \n"))
+    print(repr("\n \n \n"))
+    
+
+
             
     """
 
     pass
 
 
+def File_Input_and_Output(chapter):     #(1.7)
+
+    #File Input and Output 
 
 
-"""
-Nel primo caso stampa la stringa con le varie funzioni, nel secondo così com'è scritto
-N.B. Per selezionare più righe premere SHIFT, Per spostarle ALT, e per ricopiarle su o giù SHIFT+ALT
+    """
 
-print(str("\n \n \n"))
-print(repr("\n \n \n"))
+    In questo esempio apriamo il contenuto del file e lo assegniamo a file,
+    subito dopo con un for andiamo a prendere riga per riga e la andiamo a stampare
+    
+    with open (r"prova.txt") as file:
+        for line in file:
+            print (line, end="")
+                        Di base con end impostato a \n
+    
 
-"""
+    Questa invece è una variante senza il with                N.B. con with andiamo a creare un ciclo (ciò spiega il motivo della identazione)
+                                                                   perciò quando finisci il ciclo il file si chiude in automatico, al contrario del 
+                                                                   secondo in cui dobbiamo chiuderlo il file.    
 
-n1 = 9
-n2 = -23
+    file = open (r"prova.txt")
 
-
-
-"""
-Stampa binario
-
-print(bin(n2))
-print(" " + bin(n1))
-print(bin(~n1))
-print(~n1)
-
-"""
-
-
-
-
-"""
-While con la funzione continue
-
-x = 10
-
-while x < 11:
-    x += 1
-    if x == 11:
-        print("dentro")
-        continue
-    print("ciao")
-
-print("fatto")
-
-"""
-
-
-
-
-"""
-Rimozione/scambio lettere in una stringa
-
-a= "Hello World "
-
-print(a.strip("ld ") + "c")
-
-"""
-
-
-
-
-
-"""
-
-Apre un file e stampa riga per riga 
-
-with open (r"C:\Users\angel\Desktop\Study_Method.txt") as file:
     for line in file:
-        print (line, end="")
-                     Di base con end impostato a \n
+        print(line, end="")
+    file.close()
+    
+
+    with open ("prova.txt") as file:
+        data = file.read()
+
+    print(file)
 
 
-"""
+    Questo esempio utilizza la variabile chunks per andare a leggere dal file in blocchi (in questo caso 101 caratteri)
 
-"""
+    with open ("prova.txt") as file:
+        while (chunks := file.read(101)):
+            print(chunks, end="\n")
+    
+            
+    Per far si che l'output vada a visualizzarsi o scriversi in un altro file è possibile in due modi:
 
-Variante senza with
+    1    print(..., file="file.txt")
 
-"""
-
-file = open (r"C:\Users\angel\Desktop\Study_Method.txt")
-
-for line in file:
-    print(line, end="")
-file.close()
-
-"""
+    2    file.write (....)
 
 
-"""
 
-"""
+    """
 
-"""
 
+def Lists(chapter):     #(1.8)
+    
+    #Lists (1.8)
+
+    """
+    
+    Liste (array) sono una collezione ordinata di oggetti arbitrari
+
+    example = [one, two, three]
+
+    
+    per aggiungere ulteriori oggetti utilizzare la funzione:
+
+    .append(...)
+
+
+    Per modificare un indice possiamo semplicemente fare:       example[n] = "..."
+    in questo modo però andiamo a sostituire il vecchio elemento e lo perdiamo
+
+    al contrario invece se utilizziamo la funzione .insert() allora andremo sempre a sostituirlo, 
+    ma il vecchio elemento si sarà spostato di un indice e stessa cosa per quelli successivi    
+
+    
+    example = ["angelo", "paulo", "giacomo"]
+
+    example.insert(1, " ciao fra")
+
+    print(example)          output = ["angelo", " ciao fra", "paulo", "giacomo"]
+
+
+
+    
+    """
+
+
+example = ["angelo", "paulo", "giacomo"]
+
+example.insert(1, " ciao fra")
+
+print(example[0:2])
+
+example[0:2] = ["ciao", "forza", "daje"]
+
+print(example)
