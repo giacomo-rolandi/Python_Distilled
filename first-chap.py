@@ -357,7 +357,88 @@ def Sets(chapter):      #(1.10)
     
     """
 
+    Un Set è una collezione di oggetti non ordinato, per inizializzarlo si utilizzano le {}
+
+    example = {"giacomo", "daniele", "francesco"}
+
+    In generale si tratta di oggetti immutabili, inoltre non essendo ordinato non è possibile utilizzare gli indici
+    Non sono presenti doppioni, se un elemento viene inserito più volte, apparirà comunque una volta sola
+
+    Altro modo per inizializzarlo
+
+    example = set()
+
+    I set comprendono una collezione di operatori utilizzabili tra di loro:
+
+        a = t | s       Unione = Saranno presenti tutti gli elementi di t e di s (sempre univoci)
+
+        a = t & s       Intersezione = Elementi presenti sia in t che in s
+
+        a = t - s       Differenza = In questo caso gli elementi di t che non sono presenti in s
+
+        a = s - t       Differenza = Stessa cosa solo al contrario
+
+        a = t ^ s       Differenza Simmetrica = Il contrario dell'intersezione, ovvero gli elementi che sono presenti o in t o in s ma non in entrambi
+
+    
+    Per aggiungere elementi è possibile farlo in due modi:
+
+        .add()      In questo caso si aggiunge un solo elemento
+
+        .update()       In questo caso si agggiungono più elementi
+
+    
+    Al contrario per rimuovere gli elementi si utilizzano:
+
+        .remove()       In questo caso se l'elemento non è presente apparirà un errore
+
+        .discard()      In questo caso invece se l'elemento da eliminare non è presente si andrà avanti comunque
+
     
     
 
+    """
+
+
+def Dictionaries(chapter):      #(1.11)
+
+    #Dictionaries (1.11)
+
+    """
+    
+    Un dizionario è una mappatura  chiave:valore  e lo puoi inizializzare utilizzando le {}
+
+    example = {
+        
+        "name" : "Giona",
+        "age"  :    23,
+        "wealth" : "money"    
+        }
+
+    
+    Per verificare la presenza di una chiave si possono utilizzare due modi:
+
+        if "name" in example:
+            .....
+        else:
+            ,,,,,,
+        
+            
+        prova = example.get("name", "default")          Nel caso in cui la chiave "name" è presente allora prova sarà uguale al valore di name, altrimenti avrà "default"
+
+    
+    Per rimuovere un elemento si utilizza "del"
+
+    del example["name"]
+
+
+    N.B. non è possibile usare come chiavi oggetti mutabili quali: liste, set e dizionari
+
+
+    Esiste anche la dictionary comprehension così formata:
+
+    total = {[s[0]:0 for s in portfolio}
+
+
+    
     """
