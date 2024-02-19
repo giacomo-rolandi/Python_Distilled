@@ -279,17 +279,85 @@ def Lists(chapter):     #(1.8)
     print(example)          output = ["angelo", " ciao fra", "paulo", "giacomo"]
 
 
+    In questo esempio sono andato a modificare la lista usando lo slicing operator, 
+    Nonostante io abbia inserito come range 0 <= k < 2. 
+    Non ho ricevuto nessun errore in quanto python permette nel caso in cui vengano inseriti più elementi del range di andare ad
+    aggiungerli esattamente come con la funzione .insert()
 
+    example = ["angelo", "paulo", "giacomo"]
+
+    example.insert(1, " ciao fra")
+
+    print(example[0:2])
+
+    example[0:2] = ["ciao", "forza", "daje"]
+
+    print(example)
+
+
+    E' possibile concatenare una lista con l'operatore  +
+
+    example = ["io", "sono"]
+    example2 = ["in", "treno"]
+
+
+    print(example+example2)
+    print(example := example+example2)
+
+
+
+    La funzione built-in list() permette di inizializzare una lista, inoltre nel caso in cui venga inserito qualcosa al suo interno
+    verrà trasformato in una lista
+
+    example = list("giacomo")
+    print(example)                  output= ["g","i","a","c","o","m","o"]    
+
+
+    """
+
+
+def Tuples(chapter):    #(1.9)
+    
+    #Tuples (1.9)
+
+    """
+    Le tuple sono strutture dati semplici e immutabili ovvero che non possono cambiare e si 
+    inizializzano utilizzano le parentesi tonde
+
+    tupla = (1,2,3)
+
+    
+    In generale le tuple vengono unpacked in altre variabili
+
+    company = ("Amazon", 150, 1998)
+
+    name, employees, birth = company
+
+
+    Immaginiamo portfolio[] una lista contenente per ogni indice una tupla con 3 elementi,
+    possiamo iterare ognuno di questi e effettuare una somma nella seguente maniera:
+
+    total = 0
+
+    for name, price, shares in portfolio:
+        total += shares*price
+    
+    In alternativa possiamo usare una list comprehension
+
+    total = sum([price*shares for _, price, shares in portfolio])
+
+    
     
     """
 
 
-example = ["angelo", "paulo", "giacomo"]
+def Sets(chapter):      #(1.10)
+    
+    #Sets (1.10)
+    
+    """
 
-example.insert(1, " ciao fra")
+    
+    
 
-print(example[0:2])
-
-example[0:2] = ["ciao", "forza", "daje"]
-
-print(example)
+    """
