@@ -440,5 +440,99 @@ def Dictionaries(chapter):      #(1.11)
     total = {[s[0]:0 for s in portfolio}
 
 
+    Per creare un dizionario vuoto ci sono due modi:
+
+        example = {}
+
+        example = dict()
+
+    
+    Immaginiamoci una lista con all'interno per ogni elemento una tupla con una coppia di valori: una stringa e un intero.
+    E' possibile realizzare un dizionario di questi elementi con chiave il primo elemento (string) e valore il secondo (int).
+
+    example = dict(pair)        con pair che si riferisce a quella lista.
+
+
+    
+    In questo esempio possiamo vedere come attraverso la funzione list() abbiamo inserito all'interno di prova tutte le chiavi, stessa cosa con
+    la funzione .keys().
+    La differenza tra i due sta che nel secondo caso anche se apportiamo una modifica al dizionario originale, la variabile prova2 tiene traccia della
+    modifica.
+
+    dizionario = {
+        "nome" : "giacomo",
+        "età" : 19,
+        "professione" : "trying to be a soft-dev"
+        }
+
+    prova = list(dizionario)
+
+    prova2 = dizionario.keys()
+
+    print(prova)
+    print (prova2)
+
+    N.B. Nel caso in cui volessi solo i valori utilizza la funzione .values(). Mentre per sia chiave che valore .items()
+    
+    """
+
+
+def Iteration_and_Looping(chapter):     #(1.12)
+
+    #Iteration and Looping (1.12)
+
+    """
+    
+    Il for è uno degli elementi più potenti. 
+    è possibile usarlo in molte situazioni.
+
+    la funzione range(i, j [, step]) permette di creare un range di numeri da i fino a <j con un incremento o decremento di step.
+
+    Questo minicapitolo parla brevemente del for e di come viene utilizzato (facendo piccoli esempi) ma molto semplice e con utilizzi già visti.
+
+
+    """
+
+
+def Functions(chapter):     #(1.13)
+
+    #Functions (1.13)
+
+    """
+    
+    Le funzioni vengono definite tramite def, invece per chiamarla basta scrivere il nome e inserire all'interno delle parentesi tonde i vari argo
+    menti necessari.
+
+    Durante l'inizializzazione della funzione è possiblile anche definire il tipo di variabile degli argomenti:
+
+    def somma (first : int, second : int)
+
+
+    Nonostante ciò è possibile "mandare" come argomenti un altro tipo di variabile, e la funzione funzionerà comunque    
+
+    def somma (first: str, second : int):
+        sum = first+second
+        return sum
+
+    res = somma(2,3)
+    print(res)          output= 5
+
+    
+
+    E' possibile ritornare una tupla con più valori, per poi essere suddivisa in più variabili.
+    ex.
+        def somma (first: str, second : int):
+            sum = first+second
+            return (first,second)
+
+    primo,secondo = somma(2,3)
+
+
+    E' possibile assegnare un valore di default ad uno dei parametri della funzione, ma è possibile comunque nella chiamata modificare questo valore
+    andando a specificarlo tra gli argomenti.
+
+    Se ci si ricorda i nomi dei vari parametri è possibili andarli a specificare tra gli argomenti, in tal caso l'ordine non è importante.
+    
+    
     
     """
