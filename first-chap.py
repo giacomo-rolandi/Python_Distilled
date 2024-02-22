@@ -532,7 +532,119 @@ def Functions(chapter):     #(1.13)
     andando a specificarlo tra gli argomenti.
 
     Se ci si ricorda i nomi dei vari parametri è possibili andarli a specificare tra gli argomenti, in tal caso l'ordine non è importante.
-    
+
+    Le variabili assegnate all'interno di una funzione hanno scopo solo all'interno di esse. Al contrario però se una variabile è stata
+    inizializzata globalmente allora anche la singola funzione potrà usufruirne.
     
     
     """
+
+
+def Exceptions(chapter):        #(1.14)
+    
+    #Exceptions (1.14)
+
+    """
+    Le eccezioni (excepts) si verificano quando sorge un problema durante l'esecuzione di uno script.
+    Per gestire questi problemi si utilizzano per lo appunto le eccezioni, che,
+    possono ad esempio: stampare un messaggio, modificare qualcosa ecc.
+
+    ex.
+            try:
+                print("Inizio del blocco try")
+                x = 1 / 0  # Questo solleverà un'eccezione
+                print("Fine del blocco try")  # Questo non verrà mai stampato
+            except ZeroDivisionError:
+                print("Eccezione gestita")
+
+            print("Dopo il blocco except")
+
+    L'eccezione è così gestita:
+    Inizia tramite il blocco try: all'interno del quale viene scritto il codice che potrebbe sollevare un errore. 
+    Viene fatto ciò perchè se un errore si presenta al di fuori del try questo non verrà gestito dall'eccezione.
+
+    Successivamente si utilizza il blocco except "nome eccezione": per scegliere cosa fare per lo appunto.
+
+    
+    N.B.
+    Quando viene gestita un eccezione, il programma riparte subito dopo l'eccezione, e NON riparte dove l'eccezione si è verificata, ovvero all'interno
+    del blocco try:
+
+    
+
+    Un altro comando utile è "raise". 
+    Questo viene utilizzata per due motivi principali:
+
+        1) Se accompagnato da il nome dell'eccezione allora, per far si che questa venga chiamata manualmente. 
+            Ovvero viene utilizzata spesso quando a seguito della verifica di una condizione si vuole eseguire un eccezione particolare.
+            ex.
+            if condizione_non_valida:
+                raise Exception("Errore: condizione non valida")
+
+            A seguito di ciò lo script si ferma. Al contrario una semplice eccezione dopo essere stata gestita può permettere la continuazione dello
+            script
+
+        2) Se invece non accompagnata da nulla permette di gestire l'eccezione al livello successivo, ad esempio immaginiamoci un eccezione
+            avvenuta all'interno di una funzione. Tramite il raise questa viene eseguita dal main.
+
+            def funzione():
+                try:
+                    x = 1 / 0  # Questo solleverà un'eccezione ZeroDivisionError
+                except ZeroDivisionError:
+                    print("Eccezione gestita nella funzione")
+                    raise  # Risolleva l'eccezione
+
+            try:
+                funzione()
+            except ZeroDivisionError:
+                print("Eccezione gestita fuori dalla funzione")
+
+            N.B. nel caso in cui ci siano delle istruzioni dopo il raise in questo caso non verrano utilizzate.
+        
+    
+    Esiste anche il finally: che crea un blocco successivo al try: che verrà utilizzato come ultima risorsa.
+
+    Il with viene molto utilizzato per script che riguardano lock,files e connessioni di rete.
+    Questo perchè spesso questi utilizzi richiedono l'apertura e la chiusura, e tramite il with tutto ciò avviene in automatico.
+
+    Quando usi lock.acquire(), stai cercando di acquisire il lock. Se il lock è già detenuto da un altro thread, il thread chiamante verrà bloccato
+    (o restituirà immediatamente False se l' argomento blocking è impostato su False) fino a quando il lock non viene rilasciato.
+
+    D' altra parte, quando usi un lock in un blocco with, Python chiama automaticamente lock.acquire() all' inizio del blocco e lock.release() 
+    alla fine del blocco, indipendentemente da come viene lasciato il blocco (ad esempio, se il codice all' interno del blocco genera un' eccezione
+    o se il blocco viene lasciato normalmente). Questo è un modo molto comodo e sicuro per gestire i lock, 
+    perché garantisce che il lock venga sempre rilasciato, anche se si verifica un errore.
+
+    """
+
+
+def Program_Termination(chapter):       #(1.15)
+
+    #Program Termination (1.15)
+
+    """
+    
+    Un programma termina quando non ha più statement da eseguire o nel caso in cui si verifichi un errore.
+    E' possibile forzare l'interruzione del programma tramite questo comando:
+
+    raise SystemExit("Something is wrong")
+
+    In generale all'uscita l'interprete cerca di raccimolare più informazioni possibili, nonostante ciò è possibile tramite un modulo (atexit)
+    far eseguire delle operazioni alla chiusura dello script
+
+    
+    """
+
+
+def Objects_And_Classes(chapter):       #(1.16)
+
+    #Objects and Classes (1.16)
+
+    """
+    
+
+    
+    
+    """
+
+print("Al prossimo capitolo")
