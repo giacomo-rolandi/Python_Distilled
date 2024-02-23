@@ -2,6 +2,9 @@
 
 chapter = 1
 
+# RICORDA: i PARAMETRI sono le variabili usate durante l'inizializzazione di una funzione, ARGOMENTI sono i "dati" che vengono passati alla funzione
+# quando la si chiama, e infine gli ATTRIBUTI sono delle variabili utilizzate per l'inizializzazione di un oggetto. 
+
 
 
 def Primitives_Variables_Expressions(chapter):  #(1.3)
@@ -638,13 +641,200 @@ def Program_Termination(chapter):       #(1.15)
 
 def Objects_And_Classes(chapter):       #(1.16)
 
+
     #Objects and Classes (1.16)
 
     """
     
+    Tutti i valori usati all'interno di un programma sono oggetti. Un oggetto è un insieme di dati interni e metodi che coinvolgono questi dati.
+    Un esempio di oggetto è un array/list questo infatti che un oggetto che contiene altri oggetti, e inoltre include dei metodi che operano su
+    questi oggetti, ad esempio la funzione .append() va ad aggiungere un oggetto alla lista.
+
+    Per verificare quali metodi contiene un oggetto è possibile utilizzare la funzione dir()
+
+    I metodi che iniziano e finiscono con un doppio _ si chiamano metodi speciali, e includono diversi operatori. Ad esempio il metodo
+    __add__ coinvolge l'operatore +
+    
+
+    Per definire un oggetto si utilizza class ...:  
+    ex.
+
+        class Stack:
+            def __init__ (self):
+                self._items = []
+
+            def push (self, item):
+                self._items.append(item)
+
+            def pop (self):
+                return self._items.pop()
+
+            def __repr__ (self):
+                return f'<{type(self).__name__} at 0x{id(self):x}, size={len(self)}>'
+
+            def __len__ (self):
+                return len(self._items)
+            
+    Di base si utilizza come attributo per rivolgersi all'oggetto in se il nome "self". Questo attributo per lo appunto si riferisce a se 
+    stesso.
+
+
+    La variabile _items (che copilot definisce come variabile di istanza) si tratta di una variabile utilizzata per definire il metodo di memorizza
+    zione dei dati, ad esempio:
+    nel caso class Stack: 
+            def __init__ (self): 
+                self._items = []
+
+    self = indica se stesso
+    _items = indica di per se gli elementi dell'oggetto, e dato che è assegnato una lista allora l'elemento di questo oggetto sarà una lista.
+
+    Dato che inizia con un _ allora per convenzione si tratta di una variabile "privata" ovvero utilizzata solo all'interno di questa classe.
+    Nonostante sia comunque possibile utilizzarla al di fuori semplicemente in tal caso sarà necessario comunicarlo al proprio collega.
+
+
+    Nell'esempio di oggetto inizializzato possiamo vedere come sono presenti due metodi con entrambi un solo parametro (self) ovvero: 
+    __repr__    __len__
+    Questi due nonostante possano essere chiamati semplicemente scrivendo il nome dell'oggetto, vengono interpretati in situazioni differenti,
+    ovvero:
+    __repr__ generalmente viene interpretato quando si chiama la funzione repr() oppure come seconda scelta con il print(), 
+    la prima è __str__ (un metodo per visualizzare come una stringa l'oggetto)
+
+    Mentre __len__ di solito quando si chiama la funzione len().
+
+
+
+    E' possibile modificare il funzionamento di una classe già esistente tramite inheritance (ereditarietà) ovvero andando a definire un oggetto,
+    con attributo un altro oggetto definito, ad esempio:
+
+        class MyStack (Stack):      Stack in questo caso è l'oggetto che abbiamo definito noi
+            def swap (self):
+                a = self.pop()
+                b = self.pop()
+                self.push(a)
+                self.push(b)
+            
+    come possiamo vedere MyStack riprenderà tutti i metodi di Stack, in più andrà ad aggiungere il metodo .swap() che permetterà di swappare gli
+    ultimi due elementi dell'array.
+
+    Oltre ad aggiungerli è possibile anche andarli a modificare, ad esempio:
+
+        class NumericStack(Stack):
+            def push(self, item):
+                if not isinstance(item, (int, float)):
+                    raise TypeError ("Expected an Int or Float")
+                super().push(item)
+        
+    In questo caso l'oggetto NumericStack modifica il metodo push() che serviva ad aggiungere elementi all'array, andando prima di tutto a fare 
+    una verifica per vedere se l'elemento dell'argomento passato è effettivamente appartenente agli oggetti Int o Float se non lo è allora 
+    fa sorgere un errore di tipo, altrimenti tramite super().push(item) va a richiamare il metodo push() della superclasse Stack e utilizza come
+    argomento item
+
+    
+    In contrapposizione dell'ereditarietà esiste la composizione (composition) che prevede un relazione di tipo "ha-un" ovvero un oggetto che contiene
+    a sua volta altri oggetti come proprietà. In questo modo si crea un oggetto che non deriva completamente da un altro, bensì si crea prima un oggetto
+    e poi si sceglie alcune proprietà derivate da altri oggetti.
+
+
 
     
     
     """
+
+
+def Modules(chapter):       #(1.17)
+
+
+    #Modules (1.17)
+
+
+    """
+
+    Definizione:
+        Un modulo è un file che contiene oggetti, funzioni o altri tipi di dati che possono essere importati tramite lo statement import
+        in un altro file.
+
+    
+    Andando a scrivere semplicimente import "nome file" andremo a includere tutto ciò presente all'interno di esso, in alternativa
+    è possibile prelevare solo ciò di cui abbiamo bisogno nel seguente metodo:
+
+    from "nome file" import "nome funzionalità"
+
+    è presente sempre la funzione dir() per vedere ciò che contiene.
+
+
+    
+    """
+
+
+def Script_Writing(chapter):        #(1.18)
+
+    #Script Writing (1.18)
+
+    """
+    
+    In molti programmi che includono altri moduli si verifica spesso una condizione:
+
+    if __name__ == "__main__":
+        main()
+
+    ovvero tramite questo controllo andiamo a verificare se il file è effettivamente il programma principale eseguito o se è semplicemente importato
+    da un altro. Ovvero immaginiamo di runnare questo programma facendo "python "nome file"" in questo caso __name__ sarà uguale a __main__ in 
+    quanto il file è il programma principale. Nel caso in cui noi facessimo "python "nome file_princ" "nome file_sec"" il main sarà "nome file_princ"
+    mentre "nome file_sec" sarà quello importato perciò se all'interno di esso ci fosse la stessa condizione questa risulterebbe falsa in quanto
+    il file principale è "nome file_princ"
+
+
+    
+
+    
+    """
+
+
+def Packages(chapter):      #(1.19)
+
+    #Packages (1.19)
+
+    """
+
+    In programmi molto grandi si arriva al punto di definire dei Pacchetti, ovvero degli insiemi di moduli. In generale per definirli si crea
+    una directory e si inseriscono i vari moduli oltre ad un file (in genere vuoto) chiamato __init__.py. una volta fatto ciò si importano 
+    sempre tramite import o from andando ad indicare il percorso relativo o assoluto. Si può sempre abbreviare tramite as. 
+
+    RICORDA: se prima hai creato moduli con dentro altri moduli e poi li inserisci all'interno di un pacchetto dovrai andarli a modificare 
+            inserendo all'interno dell'import/from il percorso relativo/assoluto.
+
+
+
+    """
+
+
+def Structuring_An_Application(chapter):        #(1.20)
+
+
+    # Structuring an Application (1.20)
+
+
+    """
+    
+    Questo sub-chapter semplicemente analizza uno dei modi per struttura un applicazioni in diversi paccheti, fa comunque notare come ci siano
+    diversi approcci per questo, e che sia fondamentale dividere il proprio lavoro da quello di un altro collega.
+    
+    
+    """
+
+
+def Managing_Third_Party_Packages(chapter):     #(1.21)
+
+    # Managing Third-Party Packages
+
+
+    """
+    
+    
+    
+    """
+
+
+
 
 print("Al prossimo capitolo")
