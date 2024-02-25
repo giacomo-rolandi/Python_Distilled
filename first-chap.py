@@ -830,7 +830,8 @@ def Managing_Third_Party_Packages(chapter):     #(1.21)
 
     """
     
-    
+    In questo sub-chapter viene semplicemente detto com'è possibile installare pacchetti di terza parti tramite pip.
+    Il comando è python3 -m pip install nome_pacchetto
     
     """
 
