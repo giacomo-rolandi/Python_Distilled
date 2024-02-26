@@ -101,14 +101,153 @@ def In_Place_Assignment(chapter):      #(2.4)
     """
 
 
+def Object_Comparison(chapter):        #(2.5)
 
-x = 4
-y = 7
+    #Object Comparison
 
-if  y and x/y:
-    print("ciao")
 
-result = y and x/y
+    """
+    
+    L'operatore == permette di verificare se due oggetti sono uguali, per essere uguali i due oggetti devono avere li stessi elementi e lo stesso valore per tutti gli elementi
+    La comparazione tra due oggetti incompatibili non produce un errore ma bensì dà come risultato False
+    In alcuni casi può succedere che nonostante siano diversi vengano comparati correttamente, ad esempio nel caso di un intero e un float.
+
+    Comparatore is compara se due oggetti "lavorano" sulla stessa locazione di memoria
+
+    ex.
+
+
+    x = [1,2,3]
+    y = x
+
+    if y is x:
+        print("Ciao")
+                                    #output = "ciao"
+    
+    
+    """
+
+
+def Ordered_Comparison_Operators(chapter):      #(2.6)
+    
+
+    #Ordered Comparison Operator
+
+
+    """
+    
+    Nelle comparazioni che includono gli operatori > e < si verifica che due oggetti sono rispettivamente uno maggiore dell'altro o minore dell'altro.
+
+    Nel caso di verifica tra due sequenze si verifica elemento dopo elemento questa comparazione fino al termine degli elementi.
+
+    Nel caso di sequenze di stringhe si verifica l'indice rispettivo di ogni lettera nella tabella ASCII
+    
+    
+    
+    """
+
+
+def Boolean_Expression_And_Truth_Values(chapter):          #(2.7)
+
+    #Boolean Expression And Truth Values
+
+    
+    """
+    
+    Negli operatori logici AND, OR e NOT si verifica tra due o più elementi delle condizioni
+    
+    AND
+        se x è falso, ritorna x; altrimenti ritorna y
+        ex.
+
+            x = 4
+            y = 7
+
+            if  y and x/y:
+                print("ciao")
+
+            result = y and x/y
+
+        In questo esempio possiamo vedere che nel primo if dato che un numero risulta sempre vero allora ritorna x/y che anch'esso essendo un numero risulta True
+        Perciò esegue la condizione vera
+        Nell'assegnazione di result possiamo vedere come y risulta di nuovo vero e dato che è vero ritorna y(ovvero x/y in questo caso) perciò result avrà come valore x/y
+
+    OR
+        se x è falso, ritorn y; altrimenti ritorna x
+        ex.
+
+            x = True
+            y = False
+
+            if y or x:
+                print("ciao")
+
+        In questo caso x(in questo caso y) risulta essere False perciò ritorna y(in questo caso x) che risulta essere True perciò la condizione è vera e viene eseguito il comando
+
+    NOT
+        se x è falso, ritorna True; altrimenti ritorna False
+
+    
+
+    
+    """
+
+
+def Operations_Involving_Iterables(chapter):        #(2.9)
+
+
+    #Operations Involving Iterables (2.9)
+
+
+    """
+    
+    Esistono diversi operatori che permettono di iterare degli oggetti.
+    Ad esempio:
+
+    for
+        è sicuramente il più utilizzato e permette di iterare tutti gli elementi di un oggetto
+    
+    v1,v2,... = s   
+        In questo caso l'oggetto s viene spacchettato (unpacked) rispettivamente in v1,v2,....
+
+    in 
+        é una verifica per vedere se almeno un elemento è nell'altro, ad esempio if 3 in [1,2,3] return True    output= True
+
+    *s
+        si tratta di un expansion e permette di espandere una lista, set o tupla
+
+
+    esempi di unpacked:
+
+    a = [a,b,c]
+
+    v1,v2,v3 = a
+
+    Può essere usata anche la variabile _ per i valori che non abbiamo la necessità di memorizzare
+
+    Se non sappiamo il numero totale si può sempre usare una starred variable, ovvero una lista che va a memorizzare tutti gli elementi extra
+    ex.
+
+    a = [1,2,3,4,5]
+
+    v1,*extra,v2 = a
+
+
+
+    
+    """
+
+
+def Operations_On_Sequences(chapter):       #(2.10)
+
+    #Operations On Sequences
+
+    """
+    
+    
+    
+    
+    """
 
 
 print("See you at the next chapter!")
